@@ -1,0 +1,163 @@
+.template-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.template-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.template-card:hover {
+  border-color: var(--border-light);
+}
+
+.template-card.active {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.template-preview {
+  width: 100px;
+  height: 70px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #f8fafc;
+  padding: 6px;
+}
+
+.template-preview.minimal {
+  background: #fff;
+}
+
+.template-preview.minimal .preview-line {
+  background: #333;
+}
+
+.template-preview.creative {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.template-preview.creative .preview-line {
+  background: rgba(255,255,255,0.8);
+}
+
+.template-preview.academic {
+  background: #f1f5f9;
+}
+
+.template-preview.academic .preview-line.title {
+  background: #1e293b;
+}
+
+.template-preview.tech {
+  background: #0f172a;
+}
+
+.template-preview.tech .preview-line {
+  background: #334155;
+}
+
+.template-preview.elegant {
+  background: #fefefe;
+  border: 1px solid #e2e8f0;
+}
+
+.template-preview.elegant .preview-line.title {
+  background: #1a1a1a;
+}
+
+.template-preview.vibrant {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.template-preview.vibrant .preview-line {
+  background: rgba(255,255,255,0.9);
+}
+
+.preview-header {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+.preview-header span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+.preview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.preview-line {
+  height: 4px;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.preview-line.title {
+  height: 6px;
+  width: 60%;
+}
+
+.preview-line.subtitle {
+  height: 5px;
+  width: 40%;
+}
+
+.preview-line.short {
+  width: 50%;
+}
+
+.template-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.template-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.template-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.selected-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
