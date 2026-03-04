@@ -111,14 +111,14 @@ export default function ExportModal({ onClose }) {
         onClick={onClose}
       >
         <motion.div 
-          className="modal-content"
+          className="modal-content glass-effect"
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="modal-header">
-            <h2>导出简历</h2>
+            <h2 className="gradient-text">导出简历</h2>
             <button className="close-btn" onClick={onClose}>
               <X size={20} />
             </button>
@@ -128,10 +128,12 @@ export default function ExportModal({ onClose }) {
             <p className="modal-desc">选择导出格式</p>
 
             <div className="export-options">
-              <button 
-                className={`export-option ${exportType === 'pdf' ? 'active' : ''}`}
+              <motion.button 
+                className={`export-option glass-effect ${exportType === 'pdf' ? 'active' : ''}`}
                 onClick={() => handleExport('pdf')}
                 disabled={exporting}
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
               >
                 {exporting && exportType === 'pdf' ? (
                   <Loader size={24} className="spinner" />
@@ -140,12 +142,14 @@ export default function ExportModal({ onClose }) {
                 )}
                 <span className="option-title">PDF</span>
                 <span className="option-desc">适用于打印和投递</span>
-              </button>
+              </motion.button>
 
-              <button 
-                className={`export-option ${exportType === 'html' ? 'active' : ''}`}
+              <motion.button 
+                className={`export-option glass-effect ${exportType === 'html' ? 'active' : ''}`}
                 onClick={() => handleExport('html')}
                 disabled={exporting}
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
               >
                 {exporting && exportType === 'html' ? (
                   <Loader size={24} className="spinner" />
@@ -154,12 +158,14 @@ export default function ExportModal({ onClose }) {
                 )}
                 <span className="option-title">HTML</span>
                 <span className="option-desc">网页版简历</span>
-              </button>
+              </motion.button>
 
-              <button 
-                className={`export-option ${exportType === 'json' ? 'active' : ''}`}
+              <motion.button 
+                className={`export-option glass-effect ${exportType === 'json' ? 'active' : ''}`}
                 onClick={() => handleExport('json')}
                 disabled={exporting}
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
               >
                 {exporting && exportType === 'json' ? (
                   <Loader size={24} className="spinner" />
@@ -168,7 +174,7 @@ export default function ExportModal({ onClose }) {
                 )}
                 <span className="option-title">JSON</span>
                 <span className="option-desc">数据备份</span>
-              </button>
+              </motion.button>
             </div>
           </div>
         </motion.div>

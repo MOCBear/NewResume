@@ -28,15 +28,20 @@ export default function Preview() {
   return (
     <div className="preview-container">
       <motion.div 
-        className="preview-wrapper"
+        className="preview-wrapper glass-effect"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="preview-toolbar">
+        <div className="preview-toolbar glass-effect">
           <div className="toolbar-info">
-            <span className="template-badge">{template}</span>
+            <span className="template-badge gradient-border">{template}</span>
             <span className="preview-hint">实时预览</span>
+          </div>
+          <div className="toolbar-actions">
+            <button className="toolbar-btn">
+              <span className="btn-text">刷新</span>
+            </button>
           </div>
         </div>
         

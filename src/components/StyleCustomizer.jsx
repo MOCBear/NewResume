@@ -70,7 +70,7 @@ export default function StyleCustomizer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <div className="customizer-tabs">
+      <div className="customizer-tabs glass-effect">
         <button 
           className={`tab-btn ${activeTab === 'colors' ? 'active' : ''}`}
           onClick={() => setActiveTab('colors')}
@@ -103,12 +103,16 @@ export default function StyleCustomizer() {
 
       <div className="customizer-content">
         {activeTab === 'colors' && (
-          <div className="tab-panel">
+          <motion.div 
+            className="tab-panel glass-effect"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
             <div className="preset-section">
               <label className="section-label">颜色预设</label>
               <div className="color-presets">
                 {colorPresets.map((preset, index) => (
-                  <button
+                  <motion.button
                     key={index}
                     className={`preset-btn ${
                       styles.primaryColor === preset.primary ? 'active' : ''
@@ -118,6 +122,7 @@ export default function StyleCustomizer() {
                       updateStyle('accentColor', preset.accent);
                     }}
                     title={preset.name}
+                    whileHover={{ scale: 1.1 }}
                   >
                     <span 
                       className="preset-primary" 
@@ -127,7 +132,7 @@ export default function StyleCustomizer() {
                       className="preset-accent" 
                       style={{ background: preset.accent }}
                     />
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -165,11 +170,15 @@ export default function StyleCustomizer() {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {activeTab === 'typography' && (
-          <div className="tab-panel">
+          <motion.div 
+            className="tab-panel glass-effect"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
             <div className="option-section">
               <label className="section-label">字体选择</label>
               <select
@@ -213,22 +222,27 @@ export default function StyleCustomizer() {
                 className="slider"
               />
             </div>
-          </div>
+          </motion.div>
         )}
 
         {activeTab === 'layout' && (
-          <div className="tab-panel">
+          <motion.div 
+            className="tab-panel glass-effect"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
             <div className="option-section">
               <label className="section-label">间距风格</label>
               <div className="spacing-options">
                 {spacingOptions.map((option) => (
-                  <button
+                  <motion.button
                     key={option.value}
                     className={`spacing-btn ${styles.spacing === option.value ? 'active' : ''}`}
                     onClick={() => updateStyle('spacing', option.value)}
+                    whileHover={{ scale: 1.05 }}
                   >
                     {option.label}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -260,11 +274,15 @@ export default function StyleCustomizer() {
                 className="slider"
               />
             </div>
-          </div>
+          </motion.div>
         )}
 
         {activeTab === 'advanced' && (
-          <div className="tab-panel">
+          <motion.div 
+            className="tab-panel glass-effect"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
             <div className="option-section">
               <label className="section-label">自定义 CSS</label>
               <textarea
@@ -274,14 +292,19 @@ export default function StyleCustomizer() {
                 className="css-editor"
               />
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
 
-      <button className="reset-btn" onClick={resetStyles}>
+      <motion.button 
+        className="reset-btn glass-effect"
+        onClick={resetStyles}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
         <RotateCcw size={14} />
         <span>重置样式</span>
-      </button>
+      </motion.button>
     </motion.div>
   );
 }

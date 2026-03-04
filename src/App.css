@@ -1,4 +1,24 @@
 .app-container {
   display: flex;
   min-height: 100vh;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  min-height: 100vh;
+  margin-left: 420px;
+  transition: all var(--transition-normal);
+}
+
+@media (max-width: 1200px) {
+  .main-content {
+    margin-left: 380px;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 0;
+  }
 }
