@@ -75,6 +75,17 @@ export default function Sidebar({ onExport }) {
         {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </div>
 
+      {/* 中间空白区域的展开按钮 */}
+      {collapsed && (
+        <button 
+          className="expand-btn"
+          onClick={() => setCollapsed(false)}
+          title="展开侧边栏"
+        >
+          <ChevronRight size={24} />
+        </button>
+      )}
+
       <aside className={`sidebar glass-effect ${collapsed ? 'collapsed' : ''} ${mobileMenuOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
